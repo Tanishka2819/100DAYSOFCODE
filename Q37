@@ -1,0 +1,43 @@
+//Q37: Write a program to find the LCM of two numbers.
+
+/*
+Sample Test Cases:
+Input 1:
+4 5
+Output 1:
+20
+
+Input 2:
+7 3
+Output 2:
+21
+
+*/
+
+#include <stdio.h>
+
+int main() {
+    int num1, num2, max;
+
+    // Prompt the user to enter two numbers
+    printf("Input two numbers: ");
+    
+    // Read the two integers from the console
+    scanf("%d %d", &num1, &num2);
+
+    // Determine the maximum number to start the search from
+    max = (num1 > num2) ? num1 : num2;
+
+    // Start a loop to find the LCM
+    while (1) {
+        // Check if the current 'max' value is divisible by both numbers
+        if (max % num1 == 0 && max % num2 == 0) {
+            printf("LCM of %d and %d is: %d\n", num1, num2, max);
+            break; // Exit the loop when LCM is found
+        }
+        // If not divisible, increment 'max' and continue
+        ++max;
+    }
+
+    return 0;
+}
