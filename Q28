@@ -1,0 +1,49 @@
+//Q28: Write a program to print the product of even numbers from 1 to n.
+
+/*
+Sample Test Cases:
+Input 1:
+4
+Output 1:
+8 (2 * 4)
+
+Input 2:
+6
+Output 2:
+48 (2 * 4 * 6)
+
+*/
+#include <stdio.h>
+
+// A recursive function to calculate the product of even numbers
+int product_of_evens(int n) {
+    // Base case: If n is 0 or 1, there are no even numbers, so the product is 1
+    if (n <= 1) {
+        return 1;
+    }
+
+    // Recursive step:
+    // If n is even, multiply n with the product of even numbers up to n-1
+    if (n % 2 == 0) {
+        return n * product_of_evens(n - 1);
+    } 
+    // If n is odd, skip it and continue with the product of even numbers up to n-1
+    else {
+        return product_of_evens(n - 1);
+    }
+}
+
+int main() {
+    int n;
+
+    // Prompt the user to enter a number
+    printf("Input a number: ");
+    
+    // Read the integer from the console
+    scanf("%d", &n);
+
+    // Call the recursive function and print the result
+    printf("%d\n", product_of_evens(n));
+
+    return 0;
+}
