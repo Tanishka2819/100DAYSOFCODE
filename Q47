@@ -1,0 +1,38 @@
+Q47: Write a program to print the following pattern:
+*
+**
+***
+****
+*****
+
+/*
+Sample Test Cases:
+Input 1:
+
+Output 1:
+*
+**
+***
+****
+*****
+
+*/
+#include <stdio.h>
+
+int main() {
+    int rows = 5; // 
+    int i, j;
+
+    // Outer loop for the number of rows
+    for (i = 1; i <= rows; ++i) {
+        // Inner loop for printing stars in each row
+        // It runs 'i' times, so the number of stars increases per row
+        for (j = 1; j <= i; ++j) {
+            printf("*");
+        }
+        // Move to the next line after each row
+        printf("\n");
+    }
+
+    return 0;
+}
