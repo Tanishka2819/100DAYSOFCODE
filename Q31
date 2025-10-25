@@ -1,0 +1,50 @@
+//Q31: Write a program to take a number as input and print its equivalent binary representation.
+
+/*
+Sample Test Cases:
+Input 1:
+10
+Output 1:
+1010
+
+Input 2:
+7
+Output 2:
+111
+
+*/
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    int decimal_num;
+    long long binary_num = 0;
+    int remainder, place = 1;
+
+    // Handle the special case of input 0 separately
+    printf("Input a number: ");
+    scanf("%d", &decimal_num);
+    
+    if (decimal_num == 0) {
+        printf("0\n");
+        return 0;
+    }
+
+    while (decimal_num > 0) {
+        // Calculate the remainder when divided by 2
+        remainder = decimal_num % 2;
+        
+        // Add the remainder to the binary representation
+        binary_num += remainder * place;
+        
+        // Move to the next place value
+        place *= 10;
+        
+        // Update the decimal number for the next iteration
+        decimal_num /= 2;
+    }
+
+    printf("%lld\n", binary_num);
+
+    return 0;
+}
