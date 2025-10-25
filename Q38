@@ -1,0 +1,43 @@
+//Q38: Write a program to find the sum of digits of a number.
+
+/*
+Sample Test Cases:
+Input 1:
+123
+Output 1:
+6
+
+Input 2:
+999
+Output 2:
+27
+
+*/
+#include <stdio.h>
+
+int main() {
+    int num, sum = 0, remainder;
+
+    // Prompt the user to enter an integer
+    printf("Input an integer: ");
+    
+    // Read the integer from the console
+    scanf("%d", &num);
+
+    // Loop until the original number becomes 0
+    while (num != 0) {
+        // Extract the last digit using modulo operator
+        remainder = num % 10;
+        
+        // Add the extracted digit to the sum
+        sum += remainder;
+        
+        // Remove the last digit by integer division
+        num /= 10;
+    }
+
+    // Print the sum of the digits
+    printf("%d\n", sum);
+
+    return 0;
+}
