@@ -1,0 +1,39 @@
+//Q35: Write a program to print all factors of a given number.
+
+/*
+Sample Test Cases:
+Input 1:
+6
+Output 1:
+1 2 3 6
+
+Input 2:
+10
+Output 2:
+1 2 5 10
+
+*/
+#include <stdio.h>
+
+int main() {
+    int num, i;
+
+    // Prompt the user to enter a positive integer
+    printf("Input an integer: ");
+    
+    // Read the integer from the console
+    scanf("%d", &num);
+
+    printf("Factors of %d are: ", num);
+
+    // Loop from 1 up to the input number
+    for (i = 1; i <= num; ++i) {
+        // Check if i is a factor of num
+        if (num % i == 0) {
+            printf("%d ", i);
+        }
+    }
+    printf("\n");
+
+    return 0;
+}
