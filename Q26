@@ -15,33 +15,21 @@ Output 2:
 */
 #include <stdio.h>
 
-// A recursive function to print numbers
-void print_numbers(int current, int n) {
-    // Base case: Stop the recursion when the current number exceeds n
-    if (current > n) {
-        return;
-    }
-
-    // Print the current number
-    printf("%d ", current);
-
-    // Recursive call to print the next number
-    print_numbers(current + 1, n);
-}
-
 int main() {
-    int n;
+    int n, i;
 
     // Prompt the user to enter a number
     printf("Input a number: ");
-
+    
     // Read the integer from the console
     scanf("%d", &n);
 
-    // Call the recursive function starting from 1
-    print_numbers(1, n);
-    
+    // Use a for loop to print numbers from 1 to n
+    for (i = 1; i <= n; i++) {
+        printf("%d ", i);
+    }
     printf("\n");
 
     return 0;
+}
 }
