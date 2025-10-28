@@ -20,22 +20,22 @@ Leap year
 */
 #include <stdio.h>
 
-int main() {
+int main()
+{
     int year;
 
-   // Prompt the user to enter a year
+   
     printf("Input a year: ");
     
-    // Read the year from the console
+   
     scanf("%d", &year);
 
-    // Leap year conditions:
-    // 1. A year is a leap year if it is perfectly divisible by 4.
-    // 2. However, if the year is divisible by 100, it is NOT a leap year...
-    // 3. ...UNLESS the year is also perfectly divisible by 400.
+   
     if ((year % 400 == 0) || ((year % 4 == 0) && (year % 100 != 0))) {
         printf("Leap year\n");
-    } else {
+    }
+else 
+{
         printf("Not a leap year\n");
     }
 
