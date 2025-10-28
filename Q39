@@ -18,7 +18,8 @@ Output 2:
 int main() 
 {
     int num, digit;
-    long long product = 1; // Initialize product to 1
+
+    long product = 1; 
 
    
     printf("Input an integer: ");
@@ -27,14 +28,17 @@ int main()
     scanf("%d", &num);
 
    
-    if (num % 10 % 2 != 0 && num / 10 == 0) {
+    if (num % 10 % 2 != 0 && num / 10 == 0) 
+{
         product = num;
     }
 else 
 {
         
-        while (num != 0) {
+        while (num != 0)
+{
             digit = num % 10; 
+
             if (digit % 2 != 0) 
 {
                 product *= digit; 
@@ -44,7 +48,7 @@ else
         }
     }
 
-    printf("%lld\n", product);
+    printf("%ld\n", product);
 
     return 0;
 }
