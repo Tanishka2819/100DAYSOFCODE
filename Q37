@@ -16,26 +16,27 @@ Output 2:
 
 #include <stdio.h>
 
-int main() {
+int main()
+{
     int num1, num2, max;
 
-    // Prompt the user to enter two numbers
+   
     printf("Input two numbers: ");
     
-    // Read the two integers from the console
+   
     scanf("%d %d", &num1, &num2);
 
-    // Determine the maximum number to start the search from
+    
     max = (num1 > num2) ? num1 : num2;
 
-    // Start a loop to find the LCM
-    while (1) {
-        // Check if the current 'max' value is divisible by both numbers
-        if (max % num1 == 0 && max % num2 == 0) {
+     while (1) 
+{
+        
+        if (max % num1 == 0 && max % num2 == 0)
+{
             printf("LCM of %d and %d is: %d\n", num1, num2, max);
-            break; // Exit the loop when LCM is found
+            break; 
         }
-        // If not divisible, increment 'max' and continue
         ++max;
     }
 
