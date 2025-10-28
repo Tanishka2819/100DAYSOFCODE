@@ -25,28 +25,31 @@ Special character
 */
 #include <stdio.h>
 
-int main() {
+int main() 
+{
     char ch;
 
-    // Prompt user to enter a character
+    
     printf("Input a character: ");
     
-    // Read the character from the console
+   
     scanf(" %c", &ch);
 
-    // Check if the character is an uppercase alphabet
+    
     if (ch >= 'A' && ch <= 'Z') {
         printf("Uppercase alphabet\n");
     } 
-    // Check if the character is a lowercase alphabet
+    
+
     else if (ch >= 'a' && ch <= 'z') {
         printf("Lowercase alphabet\n");
     } 
-    // Check if the character is a digit
-    else if (ch >= '0' && ch <= '9') {
+    
+    else if (ch >= '0' && ch <= '9') 
+{
         printf("Digit\n");
     } 
-    // If none of the above, it's a special character
+   
     else {
         printf("Special character\n");
     }
