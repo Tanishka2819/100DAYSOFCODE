@@ -15,24 +15,32 @@ Consonant
 */
 #include <stdio.h>
 
-int main() {
+int main()
+{
     char ch;
 
-    // Prompt the user to enter a character
+   
     printf("Input a character: ");
     
-    // Read the character from the console
+
     scanf(" %c", &ch); // Note the space before %c to consume any leading whitespace
 
-    // Check if the character is an alphabet and then if it's a vowel
-    if ((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z')) {
+   
+    if ((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z')) 
+{
         if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u' ||
-            ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U') {
+            ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U')
+{
             printf("Vowel\n");
-        } else {
+        } 
+else 
+{
             printf("Consonant\n");
         }
-    } else {
+    }
+else 
+
+{
         printf("Not an alphabet\n");
     }
 
