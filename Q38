@@ -15,7 +15,8 @@ Output 2:
 */
 #include <stdio.h>
 
-int main() {
+int main() 
+{
     int num, sum = 0, remainder;
 
     
@@ -25,7 +26,8 @@ int main() {
     scanf("%d", &num);
 
  
-    while (num != 0) {
+    while (num != 0)
+{
         
         remainder = num % 10;
         
