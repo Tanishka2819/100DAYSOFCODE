@@ -15,30 +15,32 @@ Output 2:
 */
 #include <stdio.h>
 
-int main() {
+int main() 
+{
     int num, digit;
     long long product = 1; // Initialize product to 1
 
-    // Prompt the user to enter an integer
+   
     printf("Input an integer: ");
     
-    // Read the integer from the console
+    
     scanf("%d", &num);
 
-    // Handle the case of a single-digit odd number
+   
     if (num % 10 % 2 != 0 && num / 10 == 0) {
         product = num;
-    } else {
-        // Loop until the number becomes 0
+    }
+else 
+{
+        
         while (num != 0) {
-            digit = num % 10; // Extract the last digit
-            
-            // Check if the digit is odd
-            if (digit % 2 != 0) {
-                product *= digit; // Multiply if odd
+            digit = num % 10; 
+            if (digit % 2 != 0) 
+{
+                product *= digit; 
             }
             
-            num /= 10; // Remove the last digit
+            num /= 10; 
         }
     }
 
