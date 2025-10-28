@@ -33,7 +33,8 @@ int main()
         return 0;
     }
 
-    while (decnumm > 0) 
+    while ( decnumm > 0) 
+
 {
         
         rem = decnum % 2;
