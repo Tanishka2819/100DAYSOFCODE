@@ -15,28 +15,33 @@ Not palindrome
 */
 #include <stdio.h>
 
-int main() {
-    int n, reversed = 0, remainder, original_n;
+int main() 
+{
+    int n, rev = 0, re, original_n;
 
-    // Prompt the user to enter an integer
+   
     printf("Input an integer: ");
     
-    // Read the integer from the console
+    
     scanf("%d", &n);
 
-    original_n = n; // Store the original number in a separate variable
+    original_n = n; 
 
-    // Reverse the number
-    while (n != 0) {
-        remainder = n % 10;
-        reversed = reversed * 10 + remainder;
+   
+    while (n != 0)
+{
+        rev= n % 10;
+        rev = rev * 10 + re;
         n /= 10;
     }
 
-    // Check if the original number is equal to the reversed number
-    if (original_n == reversed) {
+    
+    if (original_n == rev) 
+{
         printf("Palindrome\n");
-    } else {
+    }
+else
+{
         printf("Not palindrome\n");
     }
 
