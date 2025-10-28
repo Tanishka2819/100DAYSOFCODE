@@ -15,21 +15,22 @@ Output 2:
 */
 #include <stdio.h>
 
-int main() {
+int main() 
+{
     int num, i;
 
-    // Prompt the user to enter a positive integer
     printf("Input an integer: ");
     
-    // Read the integer from the console
+    
     scanf("%d", &num);
 
     printf("Factors of %d are: ", num);
 
-    // Loop from 1 up to the input number
-    for (i = 1; i <= num; ++i) {
-        // Check if i is a factor of num
-        if (num % i == 0) {
+    
+    for (i = 1; i <= num; ++i)
+{
+        if (num % i == 0)
+{
             printf("%d ", i);
         }
     }
