@@ -15,29 +15,49 @@ Output 2:
 */
 #include <stdio.h>
 
-int main() {
+int main()
+{
     int num, reversed_num = 0, remainder;
 
-    // Prompt the user to enter an integer
+   
     printf("Input an integer: ");
     
-    // Read the integer from the console
+
+
+
     scanf("%d", &num);
 
-    // Loop until the original number becomes 0
-    while (num != 0) {
-        // Extract the last digit of the original number
+
+
+    while (num != 0) 
+{
+    
         remainder = num % 10;
         
-        // Append the last digit to the reversed number
-        reversed_num = reversed_num * 10 + remainder;
         
-        // Remove the last digit from the original number
+
+
+
+reversed_num = reversed_num * 10 + remainder;
+        
+
+
+
+
         num /= 10;
     }
 
-    // Print the reversed number
+
+
     printf("Reversed number: %d\n", reversed_num);
 
+
+
+
     return 0;
+
+
+
+
+
 }
