@@ -15,27 +15,29 @@ Output 2:
 */
 #include <stdio.h>
 
-int main() {
+int main()
+{
     int num1, num2, remainder;
 
-    // Prompt the user to enter two integers
+    
     printf("Input two numbers: ");
     
-    // Read the two integers from the console
+    
     scanf("%d %d", &num1, &num2);
 
-    // Keep track of the original numbers for printing
+    
     int original_num1 = num1;
     int original_num2 = num2;
 
-    // Use the Euclidean algorithm to find the HCF
-    while (num2 != 0) {
+    
+    while (num2 != 0)
+{
         remainder = num1 % num2;
         num1 = num2;
         num2 = remainder;
     }
 
-    // After the loop, num1 holds the HCF
+   
     printf("HCF of %d and %d is: %d\n", original_num1, original_num2, num1);
 
     return 0;
