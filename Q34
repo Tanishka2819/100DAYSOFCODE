@@ -16,32 +16,38 @@ Not prime
 #include <stdio.h>
 #include <math.h> // Required for sqrt() function
 
-int main() {
+int main()
+{
     int num, i, is_prime = 1;
 
-    // Prompt the user to enter a number
+   
     printf("Input an integer: ");
-    
-    // Read the integer from the console
+ 
     scanf("%d", &num);
 
-    // Handle special cases
-    if (num <= 1) {
-        is_prime = 0; // Numbers less than or equal to 1 are not prime
-    } else {
-        // Loop from 2 up to the square root of the number
-        for (i = 2; i <= sqrt(num); i++) {
-            if (num % i == 0) {
-                is_prime = 0; // If a divisor is found, it's not prime
-                break;       // Exit the loop immediately
+ 
+    if (num <= 1)
+{
+        is_prime = 0;
+    } else 
+{
+        
+        for (i = 2; i <= sqrt(num); i++) 
+{
+            if (num % i == 0)
+{
+                is_prime = 0; 
+                break;       
             }
         }
     }
 
-    // Print the result based on the is_prime flag
-    if (is_prime) {
+    
+    if (is_prime) 
+{
         printf("Prime\n");
-    } else {
+    } else
+{
         printf("Not prime\n");
     }
 
