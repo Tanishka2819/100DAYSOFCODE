@@ -1,0 +1,58 @@
+Q126: Ask the user for a filename. Check if it exists by trying to open it in read mode. If the file pointer is NULL, print an error message; otherwise, read and display its content.
+
+/*
+Sample Test Cases:
+Input 1:
+Filename: sample.txt (File Exists: Yes)
+Output 1:
+File opened successfully.
+(Displays file content)
+
+Input 2:
+Filename: nofile.txt (File Exists: No)
+Output 2:
+Error: File does not exist!
+
+*/
+#include <stdio.h>
+#include <stdlib.h> // For EXIT_FAILURE
+
+#define FILENAME_MAX_LENGTH 100
+
+int main() {
+    FILE *file_pointer;
+    char filename[FILENAME_MAX_LENGTH];
+    char ch; // To store characters read from the file
+
+    // 1. Ask the user for a filename
+    printf("Enter filename to check and display: ");
+    scanf("%s", filename);
+
+    // 2. Try to open the file in read mode ("r")
+    file_pointer = fopen(filename, "r");
+
+    // 3. Check if the file pointer is NULL
+    if (file_pointer == NULL) {
+        // If NULL, the file does not exist or cannot be opened
+        printf("Error: File does not exist!\n");
+        // Use perror to provide system-level error details if needed
+        // perror("Reason");
+        return EXIT_FAILURE;
+    } else {
+        // If not NULL, the file exists and is open
+        printf("File opened successfully.\n");
+        printf("--- Start of File Content ---\n");
+
+        // 4. Read and display its content character by character
+        while ((ch = fgetc(file_pointer)) != EOF) {
+            putchar(ch); // putchar writes a single character to standard output (console)
+        }
+        
+        printf("\n--- End of File Content ---\n");
+
+        // 5. Close the file
+        fclose(file_pointer);
+    }
+
+    return 0; // Exit the program successfully
+}
