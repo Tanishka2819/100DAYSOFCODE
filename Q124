@@ -1,0 +1,61 @@
+Q124: Take two filenames from the user – a source file and a destination file. Copy all the content from the source file to the destination file using fgetc() and fputc().
+
+/*
+Sample Test Cases:
+Input 1:
+Source File: source.txt (Content: Learning C File Handling)
+Output 1:
+File copied successfully to destination.txt
+
+*/
+#include <stdio.h>
+#include <stdlib.h> // For EXIT_FAILURE and exit()
+
+#define BUFFER_SIZE 100 // Define a maximum size for filenames
+
+int main() {
+    FILE *source_ptr, *dest_ptr;
+    char source_filename[BUFFER_SIZE], dest_filename[BUFFER_SIZE];
+    char character; // Variable to hold each character read from the source
+
+    // 1. Get source and destination filenames from the user
+    printf("Enter source filename: ");
+    scanf("%s", source_filename);
+
+    printf("Enter destination filename: ");
+    scanf("%s", dest_filename);
+
+    // 2. Open source file in read mode ("r")
+    source_ptr = fopen(source_filename, "r");
+    if (source_ptr == NULL) {
+        // If the source file cannot be opened (e.g., doesn't exist), print error and exit
+        printf("Error: Cannot open source file %s\n", source_filename);
+        return EXIT_FAILURE;
+    }
+
+    // 3. Open destination file in write mode ("w")
+    // If the destination file exists, its content will be overwritten.
+    dest_ptr = fopen(dest_filename, "w");
+    if (dest_ptr == NULL) {
+        // If the destination file cannot be created/opened, print error, close the source file, and exit
+        printf("Error: Cannot open destination file %s\n", dest_filename);
+        fclose(source_ptr); // Clean up the already opened source file
+        return EXIT_FAILURE;
+    }
+
+    // 4. Read from source and write to destination character by character
+    // fgetc() returns the character read, or EOF when the end of the file is reached
+    while ((character = fgetc(source_ptr)) != EOF) {
+        // fputc() writes the character to the destination file
+        fputc(character, dest_ptr);
+    }
+
+    // 5. Close both files
+    fclose(source_ptr);
+    fclose(dest_ptr);
+
+    // 6. Display success message
+    printf("File copied successfully to %s\n", dest_filename);
+
+    return 0; // Exit the program successfully
+}
