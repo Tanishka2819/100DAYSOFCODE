@@ -1,0 +1,40 @@
+Q122: Write a C program that opens an existing file (e.g., info.txt) and reads its contents using fgets(). The program should print all the lines to the console until EOF (end of file) is reached.
+
+/*
+Sample Test Cases:
+Input 1:
+File: info.txt (Content: Name: Rahul\nAge: 23)
+Output 1:
+Name: Rahul
+Age: 23
+
+*/
+#include <stdio.h>
+#include <stdlib.h> // Required for exit()
+
+int main() {
+    FILE *file_pointer;
+    char buffer[100]; // Buffer to store each line read from the file
+
+    // Open the file named "info.txt" in read mode ("r")
+    file_pointer = fopen("info.txt", "r");
+
+    if (file_pointer == NULL) {
+        // If the file cannot be opened (e.g., does not exist), print an error and exit
+        perror("Error opening file");
+        return EXIT_FAILURE; // A standard way to indicate an unsuccessful execution
+    }
+
+    // Read data from the file line by line until the end of the file is reached
+    // fgets() returns NULL when EOF is encountered
+    while (fgets(buffer, sizeof(buffer), file_pointer) != NULL) {
+        // Print the contents of the buffer to the console
+        printf("%s", buffer);
+    }
+
+    // Close the file
+    fclose(file_pointer);
+
+    return 0; // Exit the program successfully
+}
+
