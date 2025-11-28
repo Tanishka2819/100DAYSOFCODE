@@ -1,0 +1,58 @@
+Q129: A file numbers.txt contains a list of integers separated by spaces. Read all integers, compute their sum and average, and print both.
+
+/*
+Sample Test Cases:
+Input 1:
+File: numbers.txt (Content: 10 20 30 40 50)
+Output 1:
+Sum = 150
+Average = 30.00
+
+*/
+#include <stdio.h>
+#include <stdlib.h> // For EXIT_FAILURE
+
+int main() {
+    FILE *file_pointer;
+    int number;
+    int sum = 0;
+    int count = 0;
+    float average = 0.0;
+
+    // Open the file "numbers.txt" in read mode ("r")
+    // Note: The file "numbers.txt" must exist and contain space-separated integers.
+    file_pointer = fopen("numbers.txt", "r");
+
+    if (file_pointer == NULL) {
+        perror("Error opening numbers.txt");
+        printf("Please ensure 'numbers.txt' exists with sample content like: \"10 20 30 40 50\"\n");
+        return EXIT_FAILURE;
+    }
+
+    // Read integers from the file using fscanf() in a loop
+    // fscanf() returns the number of items successfully read. 
+    // The loop continues as long as it successfully reads one integer (return value 1).
+    while (fscanf(file_pointer, "%d", &number) == 1) {
+        sum += number; // Add the read number to the sum
+        count++;       // Increment the count of numbers read
+    }
+
+    // Close the file
+    fclose(file_pointer);
+
+    // Calculate the average if at least one number was read
+    if (count > 0) {
+        // Cast `sum` to float before division to ensure floating-point arithmetic
+        average = (float)sum / count;
+    } else {
+        printf("No numbers found in the file.\n");
+        return EXIT_FAILURE; // Exit if no data was processed
+    }
+
+    // Print the final results
+    printf("Sum = %d\n", sum);
+    // Format average to two decimal places
+    printf("Average = %.2f\n", average);
+
+    return 0; // Exit the program successfully
+}
