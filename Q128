@@ -1,0 +1,57 @@
+Q128: Read a text file and count how many vowels and consonants are in the file. Ignore digits and special characters.
+
+/*
+Sample Test Cases:
+Input 1:
+File: text.txt (Content: Welcome to C language)
+Output 1:
+Vowels: 8
+Consonants: 10
+
+*/
+#include <stdio.h>
+#include <stdlib.h> // For EXIT_FAILURE
+#include <ctype.h>  // For tolower(), isalpha()
+
+int main() {
+    FILE *file_pointer;
+    char ch;
+    int vowels = 0, consonants = 0;
+
+    // Open the file "text.txt" in read mode ("r")
+    // Note: The file "text.txt" must exist in the same directory as the program.
+    file_pointer = fopen("text.txt", "r");
+
+    if (file_pointer == NULL) {
+        perror("Error opening text.txt");
+        printf("Please ensure 'text.txt' exists with sample content like: \"Welcome to C language\"\n");
+        return EXIT_FAILURE;
+    }
+
+    // Read characters from the file one by one until the end of the file is reached
+    while ((ch = fgetc(file_pointer)) != EOF) {
+        // Convert the character to lowercase to simplify the vowel check
+        char lower_ch = tolower(ch);
+
+        // Check if the character is an alphabetic character (a-z)
+        if (isalpha(lower_ch)) {
+            // Check if it is a vowel
+            if (lower_ch == 'a' || lower_ch == 'e' || lower_ch == 'i' || lower_ch == 'o' || lower_ch == 'u') {
+                vowels++;
+            } else {
+                // If it's alphabetic but not a vowel, it's a consonant
+                consonants++;
+            }
+        }
+        // Ignore digits, spaces, and special characters
+    }
+
+    // Close the file
+    fclose(file_pointer);
+
+    // Print the final counts
+    printf("Vowels: %d\n", vowels);
+    printf("Consonants: %d\n", consonants);
+
+    return 0; // Exit the program successfully
+}
