@@ -1,0 +1,45 @@
+Q132: Define an enum for traffic lights (RED, YELLOW, GREEN) and print 'Stop', 'Wait', or 'Go' based on its value.
+
+/*
+Sample Test Cases:
+Input 1:
+GREEN
+Output 1:
+Go
+
+*/
+#include <stdio.h>
+
+int main() {
+    // Define an enumeration for traffic light states
+    enum TrafficLight {
+        RED,   // 0
+        YELLOW, // 1
+        GREEN  // 2
+    };
+
+    // Declare a variable of type enum TrafficLight and initialize it (e.g., to GREEN)
+    enum TrafficLight current_state = GREEN; 
+
+    // Use a switch statement to check the value of the enumeration variable
+    // and print the corresponding action message.
+    switch (current_state) {
+        case RED:
+            printf("Stop\n");
+            break;
+        case YELLOW:
+            printf("Wait\n");
+            break;
+        case GREEN:
+            printf("Go\n");
+            break;
+        default:
+            printf("Invalid state\n");
+    }
+
+    // You can also change the state and run the logic again if needed, for example:
+    // current_state = RED;
+    // ... switch statement again ...
+
+    return 0;
+}
