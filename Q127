@@ -1,0 +1,54 @@
+Q127: Write a program that reads text from input.txt, converts all lowercase letters to uppercase, and writes the result to output.txt.
+
+/*
+Sample Test Cases:
+Input 1:
+Input File (input.txt): Hello World\nC programming
+Output 1:
+Output File (output.txt): HELLO WORLD\nC PROGRAMMING
+
+*/
+#include <stdio.h>
+#include <stdlib.h> // For EXIT_FAILURE and EXIT_SUCCESS
+#include <ctype.h>  // For toupper()
+
+int main() {
+    FILE *inputFilePtr, *outputFilePtr;
+    char ch;
+
+    // 1. Open input.txt for reading ("r")
+    inputFilePtr = fopen("input.txt", "r");
+    if (inputFilePtr == NULL) {
+        perror("Error opening input.txt");
+        printf("Please ensure 'input.txt' exists with sample content.\n");
+        return EXIT_FAILURE;
+    }
+
+    // 2. Open output.txt for writing ("w")
+    // This creates the file if it doesn't exist, or overwrites it if it does.
+    outputFilePtr = fopen("output.txt", "w");
+    if (outputFilePtr == NULL) {
+        perror("Error opening output.txt");
+        fclose(inputFilePtr); // Clean up the input file pointer before exiting
+        return EXIT_FAILURE;
+    }
+
+    // 3. Read character by character from input file
+    while ((ch = fgetc(inputFilePtr)) != EOF) {
+        // 4. Convert character to uppercase using toupper()
+        // toupper() converts a lowercase letter to uppercase;
+        // other characters (like spaces, numbers, punctuation) remain unchanged.
+        char upper_ch = toupper(ch);
+
+        // 5. Write the uppercase character to the output file
+        fputc(upper_ch, outputFilePtr);
+    }
+
+    // 6. Close both files
+    fclose(inputFilePtr);
+    fclose(outputFilePtr);
+
+    printf("Successfully converted content from input.txt to uppercase in output.txt\n");
+
+    return EXIT_SUCCESS; // A standard way to indicate successful execution
+}
