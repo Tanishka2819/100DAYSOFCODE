@@ -1,0 +1,70 @@
+Q136: Use enum to represent menu choices (ADD, SUBTRACT, MULTIPLY) and perform operations using switch.
+
+/*
+Sample Test Cases:
+Input 1:
+ADD 10 20
+Output 1:
+30
+
+*/
+#include <stdio.h>
+#include <stdlib.h> // For EXIT_FAILURE and EXIT_SUCCESS
+#include <string.h> // For strcmp
+
+// Define an enumeration for menu choices
+enum MenuChoice {
+    ADD,
+    SUBTRACT,
+    MULTIPLY,
+    UNKNOWN_CHOICE // Helper for error handling if input is not parsed correctly
+};
+
+// Function to convert input string (e.g., "ADD") to its enum value
+enum MenuChoice get_choice_from_string(char* choice_str) {
+    if (strcmp(choice_str, "ADD") == 0) return ADD;
+    if (strcmp(choice_str, "SUBTRACT") == 0) return SUBTRACT;
+    if (strcmp(choice_str, "MULTIPLY") == 0) return MULTIPLY;
+    return UNKNOWN_CHOICE;
+}
+
+int main() {
+    char input_choice_str[20];
+    double num1, num2, result;
+    enum MenuChoice user_choice;
+
+    // Prompt user for input format (e.g., "ADD 10 20")
+    printf("Enter operation (ADD, SUBTRACT, MULTIPLY) followed by two numbers (e.g., ADD 10 20): \n");
+    
+    // Read input from the user
+    if (scanf("%s %lf %lf", input_choice_str, &num1, &num2) != 3) {
+        printf("Invalid input format.\n");
+        return EXIT_FAILURE;
+    }
+
+    // Convert the string input to the enum type
+    user_choice = get_choice_from_string(input_choice_str);
+
+    // Perform the calculation using a switch statement
+    switch (user_choice) {
+        case ADD:
+            result = num1 + num2;
+            // Using %.0f to match sample output format for integers
+            printf("%.0f\n", result); 
+            break;
+        case SUBTRACT:
+            result = num1 - num2;
+            printf("%.0f\n", result);
+            break;
+        case MULTIPLY:
+            result = num1 * num2;
+            printf("%.0f\n", result);
+            break;
+        case UNKNOWN_CHOICE:
+        default:
+            printf("Invalid operation choice entered.\n");
+            return EXIT_FAILURE;
+    }
+
+    return EXIT_SUCCESS;
+}
