@@ -1,0 +1,67 @@
+Q137: Create an enum for user roles (ADMIN, USER, GUEST) and display messages based on role.
+
+/*
+Sample Test Cases:
+Input 1:
+GUEST
+Output 1:
+Welcome Guest!
+
+*/
+#include <stdio.h>
+#include <stdlib.h> // For EXIT_FAILURE and EXIT_SUCCESS
+#include <string.h> // For strcmp
+
+// Define an enumeration for user roles
+enum UserRole {
+    ADMIN, // 0
+    USER,  // 1
+    GUEST  // 2
+};
+
+// Function to convert input string (e.g., "GUEST") to its enum value
+enum UserRole get_role_from_string(char* role_str) {
+    if (strcmp(role_str, "ADMIN") == 0) return ADMIN;
+    if (strcmp(role_str, "USER") == 0) return USER;
+    if (strcmp(role_str, "GUEST") == 0) return GUEST;
+    // Return a default or error value if needed.
+    // For simplicity here, we assume valid input or handle the default case in main.
+    return GUEST; // Defaulting to GUEST if input is unexpected but still running
+}
+
+int main() {
+    char input_role_str;
+    enum UserRole user_role;
+
+    // Prompt the user for a role input (e.g., "GUEST")
+    printf("Enter user role (ADMIN, USER, GUEST): ");
+    
+    // Read input from the user
+    if (scanf("%s", input_role_str) != 1) {
+        printf("Invalid input.\n");
+        return EXIT_FAILURE;
+    }
+
+    // Convert the string input to the enum type
+    user_role = get_role_from_string(input_role_str);
+
+    // Use a switch statement to display the appropriate message
+    switch (user_role) {
+        case ADMIN:
+            printf("Welcome Administrator!\n");
+            break;
+        case USER:
+            printf("Welcome User!\n");
+            break;
+        case GUEST:
+            printf("Welcome Guest!\n");
+            break;
+        // A 'default' case isn't strictly needed here if get_role_from_string guarantees a valid enum,
+        // but it's good practice for robust code:
+        // default:
+        //     printf("Role not recognized.\n"); 
+        //     break;
+    }
+
+    return EXIT_SUCCESS;
+}
